@@ -114,5 +114,8 @@ function renderToDos(toDoList) {
         })
         .catch((error) => {
             console.log('error on the PUT request', error)
+            alert(error)
         })
     }
+
+   

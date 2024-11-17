@@ -11,12 +11,12 @@ if (process.env.NODE_ENV == 'test') {
 }
 todos [
   {
-    whatToDO: 'Walk the dog',
-    done: 'No'
+    text: 'Walk the dog',
+    isComplete: 'No'
   },
   {
-    whatToDo: 'Fold clean clothes',
-    done: 'yes'
+    text: 'Fold clean clothes',
+    isComplete: 'yes'
   }
 ]
 
