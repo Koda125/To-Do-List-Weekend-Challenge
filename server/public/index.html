@@ -4,14 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
   <script src="./scripts/axios.js"></script>
-  <script src="./scripts/client.js"></script>
+  <script defer src="./scripts/client.js"></script>
   <title>SQL TO-DO List</title>
 </head>
 <body>
   <header>
-    <h1>SQL TO-DO List</h1>
+    <h1>To-Do List!</h1>
   </header>
+  <span>
+    <input placeholder="Add to To-Do" size=15></input>
+    <input placeholder="is task done? Y or N" size="10"></input>
+    <button>Add</button>
+  </span>
+  <table id="toDos">
+    <thead>
+      <tr>
+        <td>What to do</td>
+        <td>is it done? (Y/N)</td>
+      </tr>
+    </thead>
+    <tbody >
 
+    </tbody>
+  </table>
 </body>
 </html>

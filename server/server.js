@@ -15,6 +15,17 @@ app.use(express.json());
 
 app.use('/todos', todos);
 
+todos [
+  {
+    whatToDO: 'Walk the dog',
+    done: 'No'
+  },
+  {
+    whatToDo: 'Fold clean clothes',
+    done: 'yes'
+  }
+]
+
 app.listen(PORT, () => {
   console.log('server running on: ', PORT);
 });
