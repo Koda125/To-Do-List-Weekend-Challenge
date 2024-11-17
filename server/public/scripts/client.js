@@ -1,4 +1,4 @@
-const { response } = require("express");
+
 
 console.log('JS is sourced!');
 onReady()
@@ -72,7 +72,7 @@ function renderToDos(toDoList) {
         console.log('In delete function')
         const confirmDelete = confirm(`Is this done?`)
         if (confirmDelete) {
-            const toDo = { text: toDoText}
+            const toDo = { id: toDoText}
         axios({
             method: "DELETE",
             url: '/todos',
