@@ -35,7 +35,7 @@ function renderToDos(toDoList) {
     addToTable.innerHTML += `
     <tr>
         <td>${toDo.text}</td>
-        <td>${toDo.isComplete}</td>
+        <td><button onClick="toggleComplete(event, ${toDo.id})">${toDo.isComplete}</button></td>
         <td><button onClick="deleteToDo(${toDo.id})">Delete</button></td>
     </tr>
     `
@@ -88,4 +88,31 @@ function renderToDos(toDoList) {
         })
         }
 
+    }
+
+    function toggleComplete(event, toDoId){
+        console.log('Using the togggleComplete function')
+        const button = event.target
+        let toDoComplete;
+        if (button.innerText === 'true') {
+            button.innerText = 'false'
+            toDoComplete = false
+        } else {
+            button.innerText = 'true'
+            toDoComplete = true
+        }
+        const newToDoList = { id: toDoId, isComplete: toDoComplete}
+        console.log('Object to send: ', newToDoList)
+        axios({
+            method: "PUT",
+            url: '/todos',
+            data: newToDoList
+        })
+        .then((response) => {
+            console.log('/todos update request recieved', response.data)
+            onReady()
+        })
+        .catch((error) => {
+            console.log('error on the PUT request', error)
+        })
     }
