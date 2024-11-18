@@ -31,16 +31,19 @@ function renderToDos(toDoList) {
     //Clear preexisting data before re sending the database data.
     addToTable.innerHTML = ''
     // New inputs to get sent into HTML
-    for (let toDo of toDoList)
+    
+    for (let toDo of toDoList){
+    
+    
     addToTable.innerHTML += `
-    <tr>
+    <tr data-testid="toDoItem">
         <td>${toDo.text}</td>
-        <td><button onClick="toggleComplete(event, ${toDo.id})">${toDo.isComplete}</button></td>
-        <td><button onClick="deleteToDo(${toDo.id})">Delete</button></td>
+        <td><button data-testid="completeButton" onClick="toggleComplete(event, ${toDo.id})">${toDo.isComplete}</button></td>
+        <td><button data-testid="deleteButton" onClick="deleteToDo(${toDo.id})">Delete</button></td>
     </tr>
     `
     }
-
+}
     function addToDo( event ) {
         console.log('Time to add to my list!')
     //    let nextToDo = document.getElementById('addInput').value
@@ -97,9 +100,11 @@ function renderToDos(toDoList) {
         if (button.innerText === 'true') {
             button.innerText = 'false'
             toDoComplete = false
+            
         } else {
             button.innerText = 'true'
             toDoComplete = true
+            
         }
         const newToDoList = { id: toDoId, isComplete: toDoComplete}
         console.log('Object to send: ', newToDoList)

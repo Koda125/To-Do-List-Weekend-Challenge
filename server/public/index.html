@@ -15,9 +15,9 @@
     <h1>To-Do List!</h1>
   </header>
   <span>
-    <input type="text" id="addInput" placeholder="Add to To-Do" size=20></input>
+    <input data-testid="toDoTextInput" type="text" id="addInput" placeholder="Add to To-Do" size=20></input>
     <!-- <input placeholder="is task done? Y or N" size="10"></input> -->
-    <button onclick="addToDo( )" >Add</button>
+    <button data-testid="submitButton" onclick="addToDo( )" >Submit</button>
   </span>
   <table id="toDos">
     <thead>
