@@ -33,12 +33,17 @@ function renderToDos(toDoList) {
     // New inputs to get sent into HTML
     
     for (let toDo of toDoList){
-    
-    
+        let btnClass = "bg-red"
+        if(toDo.isComplete === 'true'){
+            btnClass = "bg-green"
+        }
     addToTable.innerHTML += `
     <tr data-testid="toDoItem">
         <td>${toDo.text}</td>
-        <td><button data-testid="completeButton" onClick="toggleComplete(event, ${toDo.id})">${toDo.isComplete}</button></td>
+        <td>
+        <button data-testid="completeButton" id="buttonColor" class="${btnClass}" onClick="toggleComplete(event, ${toDo.id})">
+        ${toDo.isComplete}
+        </button></td>
         <td><button data-testid="deleteButton" onClick="deleteToDo(${toDo.id})">Delete</button></td>
     </tr>
     `
@@ -95,14 +100,17 @@ function renderToDos(toDoList) {
 
     function toggleComplete(event, toDoId){
         console.log('Using the togggleComplete function')
+        
         const button = event.target
         let toDoComplete;
         if (button.innerText === 'true') {
             button.innerText = 'false'
+            button.setAttribute("class", "bg-red")
             toDoComplete = false
             
         } else {
             button.innerText = 'true'
+            button.setAttribute("class", "bg-green")
             toDoComplete = true
             
         }
