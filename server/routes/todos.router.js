@@ -44,7 +44,7 @@ const pool = require('../modules/pool');
     })
 
     router.put ('/', (req, res) => {
-        let queryText = `UPDATE todos SET isComplete=$1 WHERE id=$2`; 
+        let queryText = `UPDATE todos SET "isComplete"=$1 WHERE "id"=$2`; 
         let values = [ req.body.isComplete, req.body.id]
         pool.query(queryText, values)
         .then(( results) => {
